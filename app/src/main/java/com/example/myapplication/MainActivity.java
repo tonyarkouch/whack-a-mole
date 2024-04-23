@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
             mole_image2.setVisibility(View.VISIBLE);
             mole_image3.setVisibility(View.VISIBLE);
             score_counter.setText("Score: " + score);
-            goToHighScoreActivity();  // Transition to HighScoreActivity only when game was active
+            goToHighScoreActivity("Free Mode");  // Transition to HighScoreActivity only when game was active
         }
     }
 
@@ -128,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
             stopGame();
             score_counter.setText("Score: " + score);;
             timer_counter.setVisibility(View.INVISIBLE);
-            goToHighScoreActivity();
+            goToHighScoreActivity("Timed Mode");
             handler.postDelayed(() -> {
                 score = 0;
                 score_counter.setText("Score: " + score);
@@ -140,9 +140,10 @@ public class MainActivity extends AppCompatActivity {
         secondsPassed++;
         timer_counter.setText(String.format("Time: %d", secondsPassed));
     }
-    private void goToHighScoreActivity() {
+    private void goToHighScoreActivity(String mode) {
         Intent intent = new Intent(this, HighScoreActivity.class);
-        intent.putExtra("SCORE", score); // Optional: Pass the score to the HighScoreActivity
+        intent.putExtra("SCORE", score);
+        intent.putExtra("MODE", mode); // Pass the game mode as well
         startActivity(intent);
     }
 
