@@ -1,3 +1,21 @@
+/*CC0 1.0 Universal
+By marking the work with a CC0 public domain dedication,
+the creator is giving up their copyright and allowing reusers to distribute, remix, adapt,
+and build upon the material in any medium or format, even for commercial purposes.
+No Copyright
+The person who associated a work with this deed has dedicated the work to the public domain by waiving all of his or her rights to the work
+worldwide under copyright law, including all related and neighboring rights, to the extent allowed by law.
+You can copy, modify, distribute and perform the work, even for commercial purposes, all without asking permission. See Other Information below.
+Other Information
+In no way are the patent or trademark rights of any person affected by CC0, nor are the rights that other persons may
+have in the work or in how the work is used, such as publicity or privacy rights.
+Unless expressly stated otherwise, the person who associated a work with this deed makes no warranties about the work,
+and disclaims liability for all uses of the work, to the fullest extent permitted by applicable law.
+When using or citing the work, you should not imply endorsement by the author or the affirmer.
+CC0: This work has been marked as dedicated to the public domain.
+* */
+
+
 package com.example.myapplication;
 
 import android.os.Bundle;
@@ -66,6 +84,8 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+
+
     private void startGame() {
         score = 0;
         score_counter.setText("Score: " + score);
@@ -88,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
             mole_image2.setVisibility(View.VISIBLE);
             mole_image3.setVisibility(View.VISIBLE);
             score_counter.setText("Score: " + score);
-            goToHighScoreActivity("Free Mode");  // Transition to HighScoreActivity only when game was active
+            goToEnterNameActivity("Free Mode");  // Transition to HighScoreActivity only when game was active
         }
     }
 
@@ -128,7 +148,7 @@ public class MainActivity extends AppCompatActivity {
             stopGame();
             score_counter.setText("Score: " + score);;
             timer_counter.setVisibility(View.INVISIBLE);
-            goToHighScoreActivity("Timed Mode");
+            goToEnterNameActivity("Timed Mode");
             handler.postDelayed(() -> {
                 score = 0;
                 score_counter.setText("Score: " + score);
@@ -140,8 +160,8 @@ public class MainActivity extends AppCompatActivity {
         secondsPassed++;
         timer_counter.setText(String.format("Time: %d", secondsPassed));
     }
-    private void goToHighScoreActivity(String mode) {
-        Intent intent = new Intent(this, HighScoreActivity.class);
+    private void goToEnterNameActivity(String mode) {
+        Intent intent = new Intent(this, EnterNameActivity.class);
         intent.putExtra("SCORE", score);
         intent.putExtra("MODE", mode); // Pass the game mode as well
         startActivity(intent);
