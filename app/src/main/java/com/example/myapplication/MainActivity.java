@@ -90,6 +90,9 @@ public class MainActivity extends AppCompatActivity {
         score = 0;
         score_counter.setText("Score: " + score);
         gameActive = true;
+        mole_image1.setVisibility(View.VISIBLE);
+        mole_image2.setVisibility(View.VISIBLE);
+        mole_image3.setVisibility(View.VISIBLE);
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -104,9 +107,9 @@ public class MainActivity extends AppCompatActivity {
     private void stopGame() {
         if (gameActive) {  // Check if the game is currently active
             gameActive = false;
-            mole_image1.setVisibility(View.VISIBLE);
-            mole_image2.setVisibility(View.VISIBLE);
-            mole_image3.setVisibility(View.VISIBLE);
+            mole_image1.setVisibility(View.INVISIBLE);
+            mole_image2.setVisibility(View.INVISIBLE);
+            mole_image3.setVisibility(View.INVISIBLE);
             score_counter.setText("Score: " + score);
             goToEnterNameActivity("Free Mode");  // Transition to HighScoreActivity only when game was active
         }
