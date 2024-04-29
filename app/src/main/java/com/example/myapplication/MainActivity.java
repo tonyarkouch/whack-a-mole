@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
             public void run() {
                 if (gameActive) {
                     toggleMoles();
-                    handler.postDelayed(this, 1000);
+                    handler.postDelayed(this, 500);
                 }
             }
         }, 1000);
