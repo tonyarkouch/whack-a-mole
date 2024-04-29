@@ -16,6 +16,6 @@ public class splashActivity extends AppCompatActivity {
             Intent intent = new Intent(splashActivity.this, MainActivity.class);
             startActivity(intent);
             finish();  // Close the splash activity so the user can't return to it
-        }, 1000);  // wait for 3 seconds
+        }, 1000);  // wait for 1 second
     }
 }
